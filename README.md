@@ -6,6 +6,7 @@ An app for tracking a group's collective exercise by plotting it as progress alo
 
 - Django backed by Postgres
 - Frontend built via React
+- Code formatting with Prettier and Black
 
 ## Ports
 
@@ -17,5 +18,6 @@ An app for tracking a group's collective exercise by plotting it as progress alo
 - `manage` - Run Django commands, e.g. `scripts/manage createsuperuser`
 - `frontend` - Start frontend server
 - `backend` - Start backend server
+- `format` - Format code
 
 
