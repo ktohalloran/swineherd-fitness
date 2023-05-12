@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e
+
+if [[ -n "${ECHOLOCATOR_DEBUG}" ]]; then
+    set -x
+fi
+
+function usage() {
+    echo -n \
+        "Usage: $(basename "$0")
+Run Django manage commands
+"
+}
+
+if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
+    if [ "${1:-}" = "--help" ]; then
+        usage
+    else
+        python3 backend/manage.py "$@"
+    fi
+fi

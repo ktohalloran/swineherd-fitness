@@ -1,0 +1,22 @@
+#!/bin/bash
+
+set -e
+
+if [[ -n "${ECHOLOCATOR_DEBUG}" ]]; then
+    set -x
+fi
+
+function usage() {
+    echo -n \
+        "Usage: $(basename "$0")
+Start frontend server
+"
+}
+
+if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
+    if [ "${1:-}" = "--help" ]; then
+        usage
+    else
+        npm start --prefix frontend
+    fi
+fi
