@@ -20,7 +20,8 @@ if [ "${BASH_SOURCE[0]}" = "${0}" ]; then
         echo "Formatting backend source code"
         python3 -m black backend
 
-        echo "Formatting frontend source code"
+        echo "Formatting and linting frontend source code"
         npm run format --prefix frontend
+        npm run lint --prefix frontend
     fi
 fi
