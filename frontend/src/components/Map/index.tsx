@@ -1,6 +1,7 @@
 import mapboxgl from "mapbox-gl";
 import React, { useEffect, useState } from "react";
-import { mapPathGeoJSON } from "../constants";
+import { mapPathGeoJSON } from "../../constants";
+import {Position} from "geojson"
 
 const token: string | undefined = process.env.REACT_APP_MAPBOXKEY
 if (token) {mapboxgl.accessToken = token}
@@ -9,12 +10,12 @@ const Map = () => {
   const [map, setMap] = useState<mapboxgl.Map | null>(null);
 
   // TODO #11: replace currentProgress with actual value from backend
-  const currentProgress: [number, number] = [29.016474, 41.021126];
+  const currentProgress: Position = mapPathGeoJSON.geometry.coordinates[0];
 
   useEffect(() => {
     const map = new mapboxgl.Map({
       style: "mapbox://styles/mapbox/streets-v11",
-      center: currentProgress,
+      center: currentProgress as [number, number],
       zoom: 9,
       container: "map-container",
     });
@@ -40,7 +41,7 @@ const Map = () => {
       })
     })
       new mapboxgl.Marker()
-        .setLngLat(currentProgress)
+        .setLngLat(currentProgress as mapboxgl.LngLatLike)
         .addTo(map)
     }
   }, [map])

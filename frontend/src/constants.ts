@@ -1,6 +1,6 @@
-import { Feature } from "geojson";
+import { Feature, LineString } from "geojson";
 
-export const mapPathGeoJSON : Feature = {
+export const mapPathGeoJSON : Feature<LineString> = {
     'type': 'Feature',
     'properties': [],
     'geometry': {
