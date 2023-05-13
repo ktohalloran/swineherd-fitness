@@ -32,8 +32,10 @@ export const findNewLocation = (startingCoords: [number, number], givenDistance:
     // TODO improvement: Don't assume x2 > x1
     const nextCoordsinPathIndex = pathCoords.findIndex(coords => coords[0] > startingCoords[0])
     const checkPointDict = findNextCheckpoint(nextCoordsinPathIndex, startingCoords, givenDistance)
-    const percentTraveled = (checkPointDict.distanceBetweenCoords - checkPointDict.remainingDistance)/checkPointDict.distanceBetweenCoords
-    const newCoordsX = pathCoords[checkPointDict.nextCheckpointIndex-1][0]*percentTraveled
-    const newCoordsY = pathCoords[checkPointDict.nextCheckpointIndex-1][1]*percentTraveled
+    const percentTraveled = checkPointDict.remainingDistance/checkPointDict.distanceBetweenCoords
+    const previousCheckpoint = pathCoords[checkPointDict.nextCheckpointIndex-1]
+    const nextCheckpoint = pathCoords[checkPointDict.nextCheckpointIndex]
+    const newCoordsX = previousCheckpoint[0] + (nextCheckpoint[0]-previousCheckpoint[0])*percentTraveled
+    const newCoordsY = previousCheckpoint[1] + (nextCheckpoint[1]-previousCheckpoint[1])*percentTraveled
     return [newCoordsX, newCoordsY]
 }

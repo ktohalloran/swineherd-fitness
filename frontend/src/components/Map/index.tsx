@@ -1,21 +1,22 @@
 import mapboxgl from "mapbox-gl";
 import React, { useEffect, useState } from "react";
 import { mapPathGeoJSON } from "../../constants";
-import {Position} from "geojson"
 
 const token: string | undefined = process.env.REACT_APP_MAPBOXKEY
 if (token) {mapboxgl.accessToken = token}
 
-const Map = () => {
-  const [map, setMap] = useState<mapboxgl.Map | null>(null);
+interface MapProps {
+  readonly currentProgress: [number, number] 
+}
 
-  // TODO #11: replace currentProgress with actual value from backend
-  const currentProgress: Position = mapPathGeoJSON.geometry.coordinates[0];
+const Map = ({currentProgress}: MapProps) => {
+  const [map, setMap] = useState<mapboxgl.Map | null>(null);
+  const [currentMarker, setCurrentMarker] = useState<mapboxgl.Marker | null>(null);
 
   useEffect(() => {
     const map = new mapboxgl.Map({
       style: "mapbox://styles/mapbox/streets-v11",
-      center: currentProgress as [number, number],
+      center: currentProgress,
       zoom: 9,
       container: "map-container",
     });
@@ -40,11 +41,19 @@ const Map = () => {
         }
       })
     })
-      new mapboxgl.Marker()
+      const marker = new mapboxgl.Marker()
         .setLngLat(currentProgress as mapboxgl.LngLatLike)
         .addTo(map)
+      setCurrentMarker(marker)
     }
-  }, [map])
+  }, [map, currentProgress])
+
+  useEffect(() => {
+    if (map && currentProgress && currentMarker) {
+      currentMarker.setLngLat(currentProgress)
+      map.flyTo({center: currentProgress})
+    }
+  }, [map, currentProgress])
 
 
   return <div id="map-container" style={{ height: "800px" }}></div>;
