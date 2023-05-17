@@ -1,9 +1,8 @@
-import { Cmd, LoopReducer, Loop, loop } from "redux-loop";
+import { Cmd, Loop, loop } from "redux-loop";
 import { ReadResource } from "../resource";
 import { Path } from "../models";
-import { getType } from "typesafe-actions";
 import { Action } from "../actions";
-import { pathFetch, pathFetchFailure, pathFetchSuccess } from "../actions/pathFetch";
+import { PATH_ACTIONS, pathFetchSuccess, pathFetchFailure } from "../actions/pathFetch";
 import { fetchPath } from "../api";
 
 export type PathState = ReadResource<Path>
@@ -15,9 +14,10 @@ export const initialPathState: PathState = {
 const pathReducer = (
     state: PathState = initialPathState,
     action: Action
-): PathState | Loop<PathState> => {
+) => {
     switch (action.type) {
-        case getType(pathFetch):
+        case PATH_ACTIONS.FETCH_ACTIVE_PATH:
+            console.log("STARTED")
             return loop(
                 {
                     status: "fetching"
@@ -26,13 +26,15 @@ const pathReducer = (
                     successActionCreator: pathFetchSuccess,
                     failActionCreator: pathFetchFailure
                 })
-            );
-        case getType(pathFetchSuccess):
+            )
+        case PATH_ACTIONS.FETCH_PATH_SUCCESS:
+            console.log("SUCCESS")
             return {
                 status: "success",
                 result: action.payload
             }
-        case getType(pathFetchFailure):
+        case PATH_ACTIONS.FETCH_PATH_FAILURE:
+            console.log("FAILURE")
             return {
                 status: "error",
                 errorMessage: action.payload
