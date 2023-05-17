@@ -1,15 +1,16 @@
 import mapboxgl from "mapbox-gl";
 import React, { useEffect, useState } from "react";
-import { mapPathGeoJSON } from "../../constants";
+import { PathState } from "../../pathSlice";
 
 const token: string | undefined = process.env.REACT_APP_MAPBOXKEY
 if (token) {mapboxgl.accessToken = token}
 
 interface MapProps {
-  readonly currentProgress: [number, number] 
+  readonly currentProgress: [number, number],
+  readonly path: PathState
 }
 
-const Map = ({currentProgress}: MapProps) => {
+const Map = ({currentProgress, path}: MapProps) => {
   const [map, setMap] = useState<mapboxgl.Map | null>(null);
   const [currentMarker, setCurrentMarker] = useState<mapboxgl.Marker | null>(null);
 
@@ -24,11 +25,12 @@ const Map = ({currentProgress}: MapProps) => {
   }, []);
 
   useEffect(() => {
-    if (map) {
+    if (map && path) {
+      console.log(path.geometry)
       map.on('load', () => {
         map.addSource('path', {
           'type': 'geojson',
-          'data': mapPathGeoJSON
+          'data': path.geometry?.geometry
         })
       
       map.addLayer({
@@ -46,7 +48,7 @@ const Map = ({currentProgress}: MapProps) => {
         .addTo(map)
       setCurrentMarker(marker)
     }
-  }, [map, currentProgress])
+  }, [map, currentProgress, path])
 
   useEffect(() => {
     if (map && currentProgress && currentMarker) {
