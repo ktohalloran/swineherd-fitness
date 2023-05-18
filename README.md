@@ -1,10 +1,10 @@
-# Swineherd Fitness
+# Walking Together Exercise Challenge Web App
 
 An app for tracking a group's collective exercise by plotting it as progress along a physical path. It converts many kinds of exercise to its equivalent in distance walked to be added to the map so that all contributors can see group progress.
 
 ## Frameworks
 
-- Django backed by Postgres
+- Django and Django Rest Framework backed by Postgres
 - Frontend built via React
 - Code formatting with Prettier and Black
 
