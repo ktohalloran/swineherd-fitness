@@ -1,6 +1,7 @@
 asgiref==3.6.0
 black==23.3.0
 Django==4.2.1
+django-cors-headers==3.10.0
 django-environ==0.10.0
 djangorestframework==3.14.0
 djangorestframework-gis==1.0

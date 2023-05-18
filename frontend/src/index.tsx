@@ -2,13 +2,10 @@ import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from "react-redux";
 import reportWebVitals from './reportWebVitals';
-import { createStore } from "redux";
-import rootReducer from "./reducers"
+import store from './store';
 
 import './index.css';
 import App from './App';
-
-const store = createStore(rootReducer)
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -17,7 +14,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <Provider store={store}>
     <React.StrictMode>
-      <App store={store} />
+      <App />
     </React.StrictMode>
   </Provider>
 );

@@ -11,11 +11,11 @@ class GetActivePath(APIView):
         if len(active_path) > 1:
             return Response(data="There is more than one active path. Please deactivate one.", status=status.HTTP_400_BAD_REQUEST)
         serializer = PathReadSerializer(active_path, many=True)
-        return Response(data=serializer.data, status=status.HTTP_200_OK)
+        return Response(data=serializer.data)
     
     def post(self, request):
         serializer = PathWriteSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            return Response(serializer.data)
+        return Response(serializer.errors)

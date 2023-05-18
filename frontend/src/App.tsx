@@ -1,28 +1,36 @@
 import React, {useEffect, useState} from 'react';
-import { connect } from "react-redux";
+import { useAppDispatch, useAppSelector } from './hooks';
 import "mapbox-gl/dist/mapbox-gl.css";
 
-import store from "./store";
 import Map from './components/Map';
+import { FeatureCollection } from "geojson";
+import {RootState} from './store';
 import AddMarkerButton from './components/AddMarkerButton';
 import { mapPathGeoJSON } from './constants';
-import { PathState } from './reducers/pathFetch';
-import { State } from "./reducers";
 
 import './App.css';
-import { pathFetch } from './actions/pathFetch';
+import { Path } from './models';
 
-interface StateProps {
-  readonly path: PathState;
-}
-
-const App = ({path}: StateProps) => {
+const App = () => {
     // TODO #11: replace markerLocation with actual value from backend
     // Move out into app state from component state
   const [markerLocation, setMarkerLocation] = useState<[number, number]>(mapPathGeoJSON.geometry.coordinates[0] as [number, number]);
+  const path = useAppSelector((state: RootState) => state.path)
+  const dispatch = useAppDispatch()
 
+  // TODO: Move this api call into slice file
   useEffect(() => {
-    store.dispatch(pathFetch())
+    const fetchPath = async () => {
+      const response = await fetch("http://localhost:8000/api/path")
+      const responseJson: FeatureCollection = await response.json()
+      const pathJson: Path = {
+        name: responseJson.features[0].properties ? responseJson.features[0].properties["name"] : "",
+        geometry: responseJson.features[0],
+        isActive: responseJson.features[0].properties ? responseJson.features[0].properties["is_active"] : "True",
+      }
+      dispatch({type: 'path/pathfetch', payload: pathJson})
+    }
+    fetchPath()
   }, [])
 
   return (
@@ -40,10 +48,4 @@ const App = ({path}: StateProps) => {
   );
 }
 
-function mapStateToProps(state: State): StateProps {
-  return {
-    path: state.path
-  }
-}
-
-export default connect(mapStateToProps)(App);
+export default App;

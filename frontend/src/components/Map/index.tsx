@@ -1,6 +1,6 @@
 import mapboxgl from "mapbox-gl";
 import React, { useEffect, useState } from "react";
-import { PathState } from "../../reducers/pathFetch";
+import { PathState } from "../../pathSlice";
 
 const token: string | undefined = process.env.REACT_APP_MAPBOXKEY
 if (token) {mapboxgl.accessToken = token}
@@ -25,11 +25,12 @@ const Map = ({currentProgress, path}: MapProps) => {
   }, []);
 
   useEffect(() => {
-    if (map && path.status === "success") {
+    if (map && path) {
+      console.log(path.geometry)
       map.on('load', () => {
         map.addSource('path', {
           'type': 'geojson',
-          'data': path.result.geometry
+          'data': path.geometry?.geometry
         })
       
       map.addLayer({
