@@ -10,5 +10,5 @@ export interface CheckpointDetails {
 export interface Path {
     readonly name: string,
     readonly geometry: Feature<LineString>,
-    readonly isActive: Boolean
+    readonly isActive: boolean
 }

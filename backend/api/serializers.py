@@ -5,12 +5,14 @@ import json
 
 from api.models import PathGeometry
 
+
 class PathReadSerializer(gis_serializers.GeoFeatureModelSerializer):
     class Meta:
         model = PathGeometry
         geo_field = "geometry"
         exclude = ["centroid"]
         id_field = False
+
 
 class PathWriteSerializer(gis_serializers.GeoFeatureModelSerializer):
     class Meta:

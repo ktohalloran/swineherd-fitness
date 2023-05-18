@@ -9,12 +9,11 @@ interface ButtonProps {
 
 // TODO: Replace with real data
 const dummyCoordinate = [29.440461, 40.797462] as [number, number]
-const dummyDistance = 3
+const dummyDistance = .05
 
 const AddMarkerButton = ({setMarker, path}: ButtonProps) => {
     return <button onClick={() => {
         if (path) {
-            // T
             const newLoc = findNewLocation(path, dummyCoordinate, dummyDistance)
             setMarker(newLoc as [number, number])
         } else {

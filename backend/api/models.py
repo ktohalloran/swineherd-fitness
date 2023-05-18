@@ -1,5 +1,6 @@
 from django.contrib.gis.db import models
 
+
 class PathGeometry(models.Model):
     name = models.CharField()
     geometry = models.GeometryField(srid=4326)
