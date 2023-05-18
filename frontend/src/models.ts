@@ -1,4 +1,4 @@
-import { Feature } from "geojson"
+import { Feature, LineString } from "geojson"
 
 
 export interface CheckpointDetails {
@@ -9,6 +9,6 @@ export interface CheckpointDetails {
 
 export interface Path {
     readonly name: string,
-    readonly geometry: Feature,
+    readonly geometry: Feature<LineString>,
     readonly isActive: Boolean
 }

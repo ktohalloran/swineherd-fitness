@@ -1,13 +1,15 @@
 import mapboxgl from "mapbox-gl";
 import React, { useEffect, useState } from "react";
-import { PathState } from "../../pathSlice";
+import { Path } from "../../models";
 
 const token: string | undefined = process.env.REACT_APP_MAPBOXKEY
 if (token) {mapboxgl.accessToken = token}
 
+const DEFAULT_MAP_CENTER = [28.9784, 41.0082] as mapboxgl.LngLatLike
+
 interface MapProps {
-  readonly currentProgress: [number, number],
-  readonly path: PathState
+  readonly currentProgress: mapboxgl.LngLatLike | null,
+  readonly path: Path | null
 }
 
 const Map = ({currentProgress, path}: MapProps) => {
@@ -17,7 +19,7 @@ const Map = ({currentProgress, path}: MapProps) => {
   useEffect(() => {
     const map = new mapboxgl.Map({
       style: "mapbox://styles/mapbox/streets-v11",
-      center: currentProgress,
+      center: currentProgress ? currentProgress : DEFAULT_MAP_CENTER,
       zoom: 9,
       container: "map-container",
     });
@@ -26,11 +28,10 @@ const Map = ({currentProgress, path}: MapProps) => {
 
   useEffect(() => {
     if (map && path) {
-      console.log(path.geometry)
       map.on('load', () => {
         map.addSource('path', {
           'type': 'geojson',
-          'data': path.geometry?.geometry
+          'data': path.geometry
         })
       
       map.addLayer({
@@ -43,10 +44,12 @@ const Map = ({currentProgress, path}: MapProps) => {
         }
       })
     })
+    if (map && path) {
       const marker = new mapboxgl.Marker()
         .setLngLat(currentProgress as mapboxgl.LngLatLike)
         .addTo(map)
       setCurrentMarker(marker)
+    }
     }
   }, [map, currentProgress, path])
 

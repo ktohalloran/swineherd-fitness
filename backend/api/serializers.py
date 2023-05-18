@@ -1,8 +1,6 @@
-from rest_framework import serializers
 from rest_framework_gis import serializers as gis_serializers
 from django.contrib.gis.geos import GEOSGeometry
 import json
-from shapely import MultiPoint
 
 
 from api.models import PathGeometry
