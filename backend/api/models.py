@@ -1,5 +1,3 @@
-import uuid
-
 from django.contrib.gis.db import models
 
 class PathGeometry(models.Model):
