@@ -39,8 +39,8 @@ class ExerciseType(models.Model):
     # to_miles_conversion is in miles/min
     type = models.CharField(max_length=50)
     needs_conversion = models.BooleanField(default=True)
-    to_miles_conversion = models.FloatField(null=True)
-    calories_per_min = models.IntegerField(null=True)
+    to_miles_conversion = models.FloatField(null=True, blank=True)
+    calories_per_min = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
         return self.type
@@ -49,7 +49,7 @@ class Submission(gisModels.Model):
     contributor_id = gisModels.ForeignKey(Contributor, on_delete=gisModels.CASCADE)
     date = gisModels.DateField(auto_now_add=True)
     exercise_type = gisModels.ForeignKey(ExerciseType, on_delete=gisModels.CASCADE)
-    duration = gisModels.FloatField(null=True)
+    duration = gisModels.FloatField(null=True, blank=True)
     distance = gisModels.FloatField()
     ending_coords = gisModels.PointField(srid=4326)
     last_checkpoint = gisModels.IntegerField()
