@@ -1,0 +1,435 @@
+[
+    {
+        "model": "api.exercisetype",
+        "fields": {
+            "type": "baseball",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.07,
+            "calories_per_min": null
+        }
+    },
+    {
+        "model": "api.exercisetype",
+        "fields": {
+            "type": "basketball",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.07,
+            "calories_per_min": null
+        }
+    },
+    {
+		"model": "api.exercisetype",
+		"fields": {
+			"type": "bicycling, easy (8.7mph)",
+			"needs_conversion": "True",
+			"to_miles_conversion": 0.14,
+			"calories_per_min": null
+		}
+	},
+	{
+		"model": "api.exercisetype",
+		"fields": {
+			"type": "bicycling, moderate (15mph)",
+			"needs_conversion": "True",
+			"to_miles_conversion": 0.25,
+			"calories_per_min": null
+		}
+	},
+	{
+		"model": "api.exercisetype",
+		"fields": {
+			"type": "bicycling, vigorous (20mph)",
+			"needs_conversion": "True",
+			"to_miles_conversion": 0.33,
+			"calories_per_min": null
+		}
+	},
+	{
+		"model": "api.exercisetype",
+		"fields": {
+			"type": "bowling",
+			"needs_conversion": "True",
+			"to_miles_conversion": 0.04,
+			"calories_per_min": null
+		}
+	},
+	{
+		"model": "api.exercisetype",
+		"fields": {
+			"type": "boxing",
+			"needs_conversion": "True",
+			"to_miles_conversion": 0.11,
+			"calories_per_min": null
+		}
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "canoeing",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.05,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "circuit training",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.1,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "climbing",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.14,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "dancing",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.05,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "elliptical trainer",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.1,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "soccer",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.1,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "gardening/yard work",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.04,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "golf (carrying clubs)",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.05,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "HIIT",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.13,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "hiking",
+            "needs_conversion": "False",
+            "to_miles_conversion": null,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "cleaning",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.4,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "ice skating",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.04,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "rollerblading",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.1,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "jumping rope (fast)",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.15,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "jumping rope (moderate)",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.13,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "kayaking",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.08,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "kickboxing/MMA",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.15,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "martial arts",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.12,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "pilates",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.05,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "punching bag",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.09,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "racquetball",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.09,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "rowing machine",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.11,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "sailing",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.05,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "skiing (downhill)",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.05,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "skiing (cross country)",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.06,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "sledding",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.08,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "snowboarding",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.09,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "softball",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.08,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "spinning",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.1,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "stair climbing (machine)",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.1,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "stair climbing (down)",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.04,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "stair climbing (up)",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.09,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "swimming",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.09,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "tennis",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.1,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "volleyball",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.05,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "weight lifting (light)",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.03,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "weight lifting (heavy)",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.09,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "yoga",
+            "needs_conversion": "True",
+            "to_miles_conversion": 0.02,
+            "calories_per_min": null
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "tabata",
+            "needs_conversion": "True",
+            "to_miles_conversion": null,
+            "calories_per_min": 13.5
+        }
+	},
+	{
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "running",
+            "needs_conversion": "False",
+            "to_miles_conversion": null,
+            "calories_per_min": null
+        }
+	},
+    {
+        "model": "api.exercisetype",
+		"fields": {
+            "type": "birding",
+            "needs_conversion": "False",
+            "to_miles_conversion": null,
+            "calories_per_min": null
+        }
+	}
+]
+  
