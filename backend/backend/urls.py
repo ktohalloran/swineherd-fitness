@@ -20,5 +20,8 @@ from api import views
 
 urlpatterns = [
     path("api/path", views.GetActivePath.as_view(), name="get_active_path"),
+    path("api/contributors", views.GetContributors.as_view(), name="get_contributors"),
+    path("api/exercise-types", views.GetExerciseTypes.as_view(), name="get_exercises"),
+    path("api/submissions", views.GetSubmissions.as_view(), name="get_submissions"),
     path("admin/", admin.site.urls),
 ]
