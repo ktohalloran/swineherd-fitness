@@ -27,20 +27,15 @@ class PathWriteSerializer(gis_serializers.GeoFeatureModelSerializer):
         data["geometry"] = GEOSGeometry(geo_data)
         return data
 
-class ContributorListSerializer(serializers.Serializer):
+class ContributorListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contributor
         fields = ('__all__')
-    
-    name = serializers.CharField()
-    color = serializers.CharField(source="user_color")
 
-class ExerciseTypeListSerializer(serializers.Serializer):
+class ExerciseTypeListSerializer(serializers.ModelSerializer):
     class Meta: 
         model = ExerciseType
-        fields = ("type")
-    
-    type = serializers.CharField()
+        fields = ("id", "type")
 
 class SubmissionListSerializer(gis_serializers.GeoFeatureModelSerializer):
     class Meta:
@@ -48,3 +43,11 @@ class SubmissionListSerializer(gis_serializers.GeoFeatureModelSerializer):
         geo_field = "ending_coords"
         exclude = ["path"]
         id_field = False
+
+class DistanceSerializer(serializers.Serializer):
+    distance = serializers.SerializerMethodField()
+
+class SubmissionWriteSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Submission
+        fields = ("__all__")
