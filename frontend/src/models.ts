@@ -12,3 +12,9 @@ export interface Path {
     readonly geometry: Feature<LineString>,
     readonly isActive: boolean
 }
+
+export interface Contributor {
+    readonly id: number,
+    readonly name: string,
+    readonly user_color: string
+}
